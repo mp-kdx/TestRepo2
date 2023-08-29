@@ -1,6 +1,5 @@
 name: workflow_02
 on:
-  workflow_dispatch:
   repository_dispatch:
     types: [workflow_02]
 jobs:
