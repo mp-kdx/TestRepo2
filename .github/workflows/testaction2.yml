@@ -4,6 +4,9 @@ on:
     types: [workflow_02]
 jobs:
   cypress-run:
+    if: |
+      startsWith(github.event.client_payload.branchName, 'releases/6.2.0') ||
+      github.event.client_payload.branchName == 'main'
     runs-on: ubuntu-latest
     steps:
       - env:
