@@ -4,7 +4,6 @@ on:
     types: [workflow_02]
 jobs:
   cypress-run:
-    if: ${{ !github.event.client_payload.version }}
     runs-on: ubuntu-latest
     steps:
       - env:
