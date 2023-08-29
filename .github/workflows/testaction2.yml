@@ -9,6 +9,12 @@ jobs:
       - env:
           VERSION: ${{ github.event.client_payload.version }}
           VERSION_TYPE: ${{ github.event.client_payload.versionType }}
+          BRANCH_NAME: ${{ github.event.client_payload.branchName }}
         run: |
           echo $VERSION
           echo $VERSION_TYPE
+          echo $BRANCH_NAME
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.client_payload.branchName }}
