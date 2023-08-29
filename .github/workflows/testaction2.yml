@@ -4,8 +4,12 @@ on:
     types: [Update Chart]
 jobs:
   cypress-run:
+    if: ${{ !github.event.client_payload.version }}
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Triggering Wokflow 2"
-      - name: Checkout
-        uses: actions/checkout@v2
+      - env:
+          VERSION: ${{ github.event.client_payload.version }}
+          VERSION_TYPE: ${{ github.event.client_payload.versionType }}
+        run: |
+          echo $VERSION
+          echo $VERSION_TYPE
