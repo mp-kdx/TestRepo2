@@ -1,7 +1,7 @@
 name: workflow_02
 on:
   repository_dispatch:
-    types: [Update Chart]
+    types: [workflow_02]
 jobs:
   cypress-run:
     if: ${{ !github.event.client_payload.version }}
